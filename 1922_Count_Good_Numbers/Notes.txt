@@ -1,0 +1,27 @@
+class Solution:
+    def countGoodNumbers(self, n: int) -> int:
+        MOD = 10**9 + 7
+        def pow(x, n):
+            res = 1
+            while n > 0:
+                if n % 2:
+                    res = (res * x) % MOD
+                n = n // 2
+                x = (x * x)% MOD
+            return res 
+        
+        even = ceil(n / 2)
+        odd = n // 2
+
+        return (pow(5, even) * pow(4,odd)) % MOD
+
+
+LeetCode 1922 - Count Good Numbers
+
+Approach:
+- Even positions have 5 possible digits.
+- Odd positions have 4 possible digits.
+- Use binary exponentiation to calculate the result efficiently.
+
+Time Complexity: O(log n)
+Space Complexity: O(1)
