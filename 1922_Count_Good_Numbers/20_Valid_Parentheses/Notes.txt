@@ -1,0 +1,16 @@
+LeetCode 20 — Valid Parentheses
+Algorithm — Stack
+Create an empty stack.
+Create a mapping of closing brackets to their opening brackets:
+) → (
+] → [
+} → {
+Traverse each character in the string.
+If it is an opening bracket, push it into the stack.
+If it is a closing bracket:
+If the stack is empty → return False.
+If the top of the stack doesn't match → return False.
+Otherwise, pop the top element.
+After processing the entire string:
+If the stack is empty → True.
+Otherwise → False.
