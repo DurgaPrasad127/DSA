@@ -2,13 +2,13 @@ class Solution:
     def countGoodNumbers(self, n: int) -> int:
         MOD = 10**9 + 7
         def pow(x, n):
-            res = 1
-            while n > 0:
+            res = 1                     #need to add something here
+            while n > 0:                #and you can keep 1 here
                 if n % 2:
                     res = (res * x) % MOD
                 n = n // 2
                 x = (x * x)% MOD
-            return res 
+            return res                  #and also need to multiply by x  
         
         even = ceil(n / 2)
         odd = n // 2
