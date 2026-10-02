@@ -1,0 +1,14 @@
+LeetCode 22 — Generate Parentheses
+Algorithm — Backtracking
+Create an empty result list.
+Use a recursive backtrack() function with:
+current → current parentheses string.
+open → number of ( used.
+close → number of ) used.
+If open == n and close == n:
+Add current to result.
+If open < n:
+Add ( and recursively continue.
+If close < open:
+Add ) and recursively continue.
+Return result.
