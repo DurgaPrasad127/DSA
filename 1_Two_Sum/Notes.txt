@@ -1,0 +1,25 @@
+An Un-Optimized Code:
+class Solution:
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        alist = []
+        if len(nums) == 2:
+            return [0,1]
+
+        for i in range(len(nums)):
+            for j in range(i):
+                if nums[i] + nums [j] == target:
+                    return [i,j]
+
+        return alist
+        
+
+Another One:
+class Solution:
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        for i in range(len(nums)):
+            for j in range(i):
+                if nums[i] + nums [j] == target:
+                    return [i,j]
+
+
+
