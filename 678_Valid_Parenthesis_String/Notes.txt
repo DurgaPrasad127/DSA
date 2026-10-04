@@ -1,0 +1,36 @@
+ALGORITHM: Check Valid String Using Stack
+
+1. Create two empty stacks:
+      open_stack → stores positions of '('
+      star_stack → stores positions of '*'
+
+2. Traverse the string from left to right.
+
+3. If the current character is '(':
+      Push its index into open_stack.
+
+4. If the current character is '*':
+      Push its index into star_stack.
+
+5. If the current character is ')':
+      a. If open_stack is not empty:
+            Pop from open_stack.
+      b. Otherwise, if star_stack is not empty:
+            Pop from star_stack and use '*' as ')'.
+      c. Otherwise:
+            Return False.
+
+6. After processing the entire string:
+      Match remaining '(' with '*' characters.
+
+7. While both stacks are not empty:
+      a. If the position of '(' is greater than the position of '*':
+            Return False.
+      b. Otherwise:
+            Pop both stacks.
+
+8. If open_stack is empty:
+      Return True.
+
+9. Otherwise:
+      Return False.
