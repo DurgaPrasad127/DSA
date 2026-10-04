@@ -1,0 +1,15 @@
+class Solution:
+    def getConcatenation(self, nums: list[int]) -> list[int]:
+        clist = nums + nums
+        return clist
+        
+class Solution:
+    def getConcatenation(self, nums: list[int]) -> list[int]:
+        clist = nums * 2
+        return clist
+        
+
+class Solution:
+    def getConcatenation(self, nums: list[int]) -> list[int]:
+        return nums + nums
+        
