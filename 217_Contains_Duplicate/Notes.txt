@@ -1,0 +1,36 @@
+class Solution:
+    def containsDuplicate(self, nums: list[int]) -> bool:
+        for i in range(len(nums)):
+            if nums[i] in nums[i+1:]:
+                return True
+        return False
+
+
+
+
+Contains Duplicate - Algorithm
+
+1. Create an empty set called seen.
+
+2. Traverse each number in nums.
+
+3. If the number is already present in seen:
+   - Return True because it is a duplicate.
+
+4. Otherwise, add the number to seen.
+
+5. After checking all numbers:
+   - Return False because no duplicate exists.
+
+Example:
+nums = [1, 2, 3, 1]
+
+seen = {}
+1 → add → {1}
+2 → add → {1,2}
+3 → add → {1,2,3}
+1 → already exists → True
+
+Complexity:
+Time: O(n)
+Space: O(n)
