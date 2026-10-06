@@ -1,0 +1,50 @@
+class Solution:
+    def minAddToMakeValid(self, s: str) -> int:
+        open_stack = []
+        close_stack = []
+
+        for i in s:
+            if i is "(":
+                open_stack.append(i)
+            else:
+                close_stack.append(i)
+        
+        lo = len(open_stack)
+        lc = len(close_stack)
+        diff = lo - lc
+
+        return abs(diff)
+        
+
+
+
+Algorithm: Minimum Add to Make Parentheses Valid
+
+1. Create an empty stack.
+2. Create additions = 0.
+3. Traverse each character in the string.
+4. If the character is '(':
+   - Push it into the stack.
+5. If the character is ')':
+   - If the stack is not empty:
+     - Pop one '(' from the stack.
+   - Otherwise:
+     - Increase additions by 1.
+6. After traversing the string:
+   - Every '(' remaining in the stack needs one ')'.
+7. Return:
+   additions + len(stack)
+
+Example:
+s = "())"
+
+( → stack = ["("]
+( → stack = ["(", "("]
+) → pop → stack = ["("]
+) → pop → stack = []
+
+Answer = 1
+
+Complexity:
+Time: O(n)
+Space: O(n)
