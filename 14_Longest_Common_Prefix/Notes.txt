@@ -1,0 +1,49 @@
+class Solution:
+    def longestCommonPrefix(self, strs: list[str]) -> str:
+        lcp = ""
+
+        for i in range(len(strs[0])):
+            for s in strs:
+                if s[i] != strs[0][i]:
+                    return lcp
+            lcp += strs[0][i]
+        return lcp
+
+ALGORITHM: LONGEST COMMON PREFIX
+
+1. Initialize an empty string `lcp` to store the common prefix.
+
+2. Take the first string as the reference string.
+
+3. Traverse through each character of the first string using index `i`.
+
+4. For every character position `i`, compare that character with the character at the same position in every string.
+
+5. If:
+   - `i` reaches the end of any string, OR
+   - the characters are different,
+   
+   then stop and return `lcp`.
+
+6. If the character is the same in all strings, add that character to `lcp`.
+
+7. Continue until all characters of the first string are checked.
+
+8. Return `lcp` as the longest common prefix.
+
+Example:
+
+```text
+strs = ["flower", "flow", "flight"]
+
+Compare:
+f → same
+l → same
+o → same
+w → different
+
+Therefore:
+lcp = "fl"
+
+Output: "fl"
+```
