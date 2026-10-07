@@ -1,0 +1,28 @@
+### Algorithm: Remove Element
+
+1. Initialize `k = 0`.
+2. Traverse through the array using index `i`.
+3. Check if `nums[i]` is **not equal** to `val`.
+4. If it is not equal to `val`, copy `nums[i]` to position `k`.
+5. Increment `k` by 1.
+6. If `nums[i]` is equal to `val`, skip it.
+7. After traversing the entire array, return `k`.
+8. `k` represents the number of elements remaining after removing `val`.
+
+**Example:**
+
+```text
+nums = [3, 2, 2, 3]
+val = 3
+
+Keep: 2, 2
+
+Result:
+nums = [2, 2, _, _]
+k = 2
+
+Output: 2
+```
+
+**Time Complexity:** `O(n)`  
+**Space Complexity:** `O(1)`
