@@ -1,0 +1,16 @@
+answer = ""
+balance = 0
+
+for every parenthesis:
+
+    if it is '(':
+        if balance > 0:
+            add '(' to answer
+
+        increase balance
+
+    if it is ')':
+        decrease balance
+
+        if balance > 0:
+            add ')' to answer
