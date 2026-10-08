@@ -1,3 +1,5 @@
+ALGORITHM:
+
 answer = ""
 balance = 0
 
