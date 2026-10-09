@@ -1,0 +1,53 @@
+## Algorithm: LeetCode 1541 — Minimum Insertions to Balance a Parentheses String
+
+Step 1: Initialize variables
+
+- `openp = 0` — unmatched opening parentheses.
+- `insertions = 0` — number of parentheses to insert.
+- `i = 0` — current index.
+
+Step 2: Traverse the string
+
+While `i` is less than the length of the string:
+
+Case A: `s[i] == '('`
+
+1. Increase `openp` by 1.
+2. Move to the next character.
+
+Case B: `s[i] == ')'`
+
+1\. Check whether the next character is also `)`.
+
+2\. If the next character is `)`:
+
+- You have a complete closing pair `))`.
+- If `openp > 0`, decrease `openp` by 1.
+- Otherwise, increase `insertions` by 1 because you need to insert `(`.
+- Move past both closing parentheses.
+
+3\. If the next character is not `)` or doesn't exist:
+
+- Insert one `)` to complete the closing pair.
+- Increase `insertions` by 1.
+- Now you have a complete closing pair.
+- If `openp > 0`, decrease `openp` by 1.
+- Otherwise, increase `insertions` by 1 to insert a missing `(`.
+- Move to the next unprocessed character.
+
+Step 3: Handle remaining opening parentheses
+
+After the loop, each remaining unmatched `(` needs two closing parentheses.
+
+\- Add `2 × openp` to `insertions`.
+
+Step 4: Return `insertions`.
+
+### Important points
+
+- Always process `))` as a pair.
+- Don't insert `(` if `openp > 0`.
+- If a `)` has no consecutive partner, insert one.
+- Each remaining `(` at the end requires two `)`.
+
+This algorithm runs in \\(O(n)\\) time and uses \\(O(1)\\) extra space.
