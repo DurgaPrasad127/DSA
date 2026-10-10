@@ -1,0 +1,140 @@
+#Time Limit Exceeded:
+class Solution:
+    def minSumSquareDiff(self, nums1: list[int], nums2: list[int], k1: int, k2: int) -> int:
+        abs_diff = []
+
+        for i in range(len(nums1)):
+            val = abs(nums1[i]-nums2[i])
+            abs_diff.append(val)
+
+        k = k1 + k2
+        while k > 0:
+            abs_diff.sort(reverse = True)
+
+            if abs_diff[0] == 0:
+                break
+            
+            abs_diff[0] -= 1
+            k -= 1
+            
+        sum_sd = 0
+        for i in range(len(abs_diff)):
+            abs_diff[i] *= abs_diff[i]
+            sum_sd += abs_diff[i]
+        
+        return sum_sd
+            
+
+
+
+
+For LeetCode 2333. Minimum Sum of Squared Difference, here are the algorithms for both your normal approach and the optimal approach.
+
+## 1. Normal approach — Greedy with sorting
+
+Idea: Always reduce the largest absolute difference by `1` until you run out of operations or all differences become zero.
+
+### Algorithm
+
+1. Create an array `abs_diff` by calculating the absolute difference between corresponding elements of `nums1` and `nums2`.
+2. Calculate the total operations: `k = k1 + k2`.
+3. While `k > 0`:
+   - Sort `abs_diff` in descending order.
+   - If the largest difference is `0`, stop.
+   - Decrease the largest difference by `1`.
+   - Decrease `k` by `1`.
+4. Calculate the sum of the squares of all differences.
+5. Return the sum.
+
+### Pseudocode
+
+```
+abs_diff = absolute differences
+k = k1 + k2
+
+while k > 0:
+    sort abs_diff in descending order
+
+    if abs_diff[0] == 0:
+        break
+
+    abs_diff[0] -= 1
+    k -= 1
+
+return sum of squares of abs_diff
+```
+
+Time complexity
+
+## \\(O(k n \log n)\\)
+
+Space complexity: \\(O(n)\\)
+
+This approach is easy to understand, but it can cause TLE because it sorts the array after every operation.
+
+## 2. Optimal approach — Binary search on the threshold
+
+Idea: Instead of reducing one difference at a time, find a threshold `mid` and reduce every difference greater than `mid` down to that level.
+
+### Algorithm
+
+1. Calculate all absolute differences and store them in `abs_diff`.
+2. Calculate `k = k1 + k2`.
+3. If `sum(abs_diff) <= k`, return `0`.
+4. Initialize binary search:
+   - `left = 0`
+   - `right = max(abs_diff)`
+5. While `left < right`:
+   - Calculate `mid = (left + right) // 2`.
+   - Count the operations needed to bring every difference down to at most `mid`:
+
+     \\[ \text{operations}=\sum_i \max(0,d_i-mid) \\]
+   - If `operations <= k`, set `right = mid`.
+   - Otherwise, set `left = mid + 1`.
+6. Set `threshold = left`.
+7. Reduce each difference to at most `threshold` and calculate the sum of its square.
+8. Calculate how many operations remain unused after this reduction. Use those remaining operations to reduce `threshold`-level differences by one. Each such reduction decreases the squared sum by \\(2 \times threshold - 1\\).
+9. Return the final sum.
+
+### Pseudocode
+
+```
+abs_diff = absolute differences
+k = k1 + k2
+
+if sum(abs_diff) <= k:
+    return 0
+
+left = 0
+right = max(abs_diff)
+
+while left < right:
+    mid = (left + right) // 2
+    operations = sum(max(0, d - mid) for d in abs_diff)
+
+    if operations <= k:
+        right = mid
+    else:
+        left = mid + 1
+
+threshold = left
+operations = sum(max(0, d - threshold) for d in abs_diff)
+remaining = k - operations
+
+answer = 0
+
+for d in abs_diff:
+    value = min(d, threshold)
+    answer += value * value
+
+answer -= remaining * (2 * threshold - 1)
+
+return answer
+```
+
+Time complexity
+
+## \\(O(n \log M)\\)
+
+Space complexity: \\(O(n)\\), where \\(M\\) is the maximum absolute difference.
+
