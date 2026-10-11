@@ -1,5 +1,5 @@
 class Solution:
-    def sumOfSquares(self, nums: List[int]) -> int:
+    def sumOfSquares(self, nums) -> int: #small change idky vs code shows error but it works fine in leetcode
         n = len(nums)
         arr = []
         

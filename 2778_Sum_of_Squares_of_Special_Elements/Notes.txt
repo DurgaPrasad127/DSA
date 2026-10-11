@@ -13,4 +13,4 @@ Algorithm: Sum of Squares of Special Elements
 11. Stop.
 
 
-#for Extra pushing
+#for Extra pushing into github
