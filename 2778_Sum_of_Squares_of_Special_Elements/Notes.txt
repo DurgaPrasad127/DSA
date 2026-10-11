@@ -11,3 +11,6 @@ Algorithm: Sum of Squares of Special Elements
 9. For each element, calculate its square and add it to `sum_s`.
 10. Return `sum_s`.
 11. Stop.
+
+
+#for Extra pushing

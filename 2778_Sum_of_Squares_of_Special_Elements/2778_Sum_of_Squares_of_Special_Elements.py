@@ -12,4 +12,5 @@ class Solution:
             sum_s += arr[i] * arr[i]
 
         return sum_s
-        
+
+#for Extra pushing
