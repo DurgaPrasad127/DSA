@@ -1,0 +1,13 @@
+Algorithm: Sum of Squares of Special Elements
+
+1. Start.
+2. Find the length of the array `nums` and store it in `n`.
+3. Initialize an empty array `arr` to store special elements.
+4. Traverse the array from index `0` to `n-1`.
+5. For each index `i`, check whether `n` is divisible by `i+1`.
+6. If divisible, append `nums[i]` to `arr`.
+7. Initialize `sum_s` to `0`.
+8. Traverse all elements in `arr`.
+9. For each element, calculate its square and add it to `sum_s`.
+10. Return `sum_s`.
+11. Stop.
