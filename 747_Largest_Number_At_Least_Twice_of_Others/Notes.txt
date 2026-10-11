@@ -1,0 +1,9 @@
+Algorithm: Dominant Index
+
+1. Initialize `maxn` with the first element of the array and `ans` with index `0`.
+2. Traverse the array from the second element to the last element.
+3. If the current element is greater than `maxn`, update `maxn` with the current element and update `ans` with its index.
+4. Traverse the array again.
+5. For each element, skip the element at index `ans`.
+6. If `maxn` is less than twice any other element, return `-1`.
+7. If all other elements satisfy the condition, return `ans`.
