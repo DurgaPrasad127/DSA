@@ -1,0 +1,6 @@
+153_Find_Minimum_in_Rotated_Sorted_Array
+class Solution:
+    def findMin(self, nums: list[int]) -> int:
+        nums.sort()
+        return nums[0]
+
