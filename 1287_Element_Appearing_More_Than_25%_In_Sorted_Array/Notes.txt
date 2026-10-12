@@ -1,0 +1,7 @@
+Rough algorithm
+1. Calculate the threshold: n // 4, where n is the array length.
+2. Iterate through the array using index i.
+3. Check whether the element at index i is equal to the element at index i + threshold.
+   - If they are equal, that element appears more than 25% of the array.
+   - Return that element.
+4. If they are not equal, continue to the next index.
