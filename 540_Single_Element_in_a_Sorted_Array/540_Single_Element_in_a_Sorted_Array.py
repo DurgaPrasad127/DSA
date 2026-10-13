@@ -1,0 +1,13 @@
+class Solution:
+    def singleNonDuplicate(self, nums) -> int:
+        n = len(nums)
+        for i in range(1,n-1):
+            if nums[i] != nums[i-1] and nums[i] != nums[i+1]:
+                return nums[i]
+        
+        if nums[n-1] == nums[n-2]:
+            return nums[0]
+        else:
+            return nums[-1]
+
+
