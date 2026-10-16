@@ -1,0 +1,15 @@
+class Solution:
+    def countSpecialIntegers(self, nums: list[int]) -> int:
+        blocks = {}
+
+        for i in range(len(nums)):
+            if i == 0 or nums[i] != nums[i - 1]:
+                blocks[nums[i]] = blocks.get(nums[i], 0) + 1
+
+        cnts = 0
+
+        for v in blocks.values():
+            if v == 1:
+                cnts += 1
+
+        return cnts
