@@ -1,0 +1,23 @@
+class Solution:
+    def leftRightDifference(self, nums: List[int]) -> List[int]:
+        lefts = []
+        total = 0
+
+        for num in nums:
+            lefts.append(total)
+            total += num
+        
+        rights = []        
+        total = 0
+        for num in nums[::-1]:
+            rights.append(total)
+            total += num
+        
+        rights.reverse()
+        
+        res = []
+        for i in range(len(nums)):
+            res.append(abs(lefts[i] - rights[i]))
+
+        return res
+        #return [abs(lefts[i] - rights[i]) for i in range(len(nums))] By keeping this you can remove the abve 4-5 lines
