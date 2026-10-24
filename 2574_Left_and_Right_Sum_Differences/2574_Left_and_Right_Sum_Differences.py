@@ -1,5 +1,5 @@
 class Solution:
-    def leftRightDifference(self, nums: List[int]) -> List[int]:
+    def leftRightDifference(self, nums):
         lefts = []
         total = 0
 
@@ -21,3 +21,4 @@ class Solution:
 
         return res
         #return [abs(lefts[i] - rights[i]) for i in range(len(nums))] By keeping this you can remove the abve 4-5 lines
+#for extra pushing into github
