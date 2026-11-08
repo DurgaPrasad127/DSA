@@ -1,0 +1,24 @@
+class Solution:
+    def countServers(self, grid) -> int:
+        rows = len(grid)
+        cols = len(grid[0])
+
+        row_cnt = [0] * rows
+        col_cnt = [0] * cols
+
+        # Count servers in each row and column
+        for i in range(rows):
+            for j in range(cols):
+                if grid[i][j] == 1:
+                    row_cnt[i] += 1
+                    col_cnt[j] += 1
+
+        # Count communicating servers
+        ans = 0
+        for i in range(rows):
+            for j in range(cols):
+                if grid[i][j] == 1:
+                    if row_cnt[i] > 1 or col_cnt[j] > 1:
+                        ans += 1
+
+        return ans
