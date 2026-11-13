@@ -1,0 +1,8 @@
+class Solution:
+    def dominantIndices(self, nums) -> int:
+        di = 0
+        for i in range(1,len(nums)):
+            if nums[i-1] > (sum(nums[i:]) // len(nums[i:])):
+                di += 1
+        
+        return di
